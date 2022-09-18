@@ -1,4 +1,3 @@
-console.log("hola");
 console.clear();
 const questions = [
     {
@@ -67,13 +66,6 @@ const questions = [
         status: 0,
         question:
             "CON LA J. Variedad salvaje del cerdo que sale en la película 'El Rey León', de nombre Pumba",
-    },
-    {
-        letter: "k",
-        answer: "kamikaze",
-        status: 0,
-        question:
-            "CON LA K. Persona que se juega la vida realizando una acción temeraria",
     },
     {
         letter: "l",
@@ -152,13 +144,6 @@ const questions = [
             "CON LA V. Nombre dado a los miembros de los pueblos nórdicos originarios de Escandinavia, famosos por sus incursiones y pillajes en Europa",
     },
     {
-        letter: "w",
-        answer: "sandwich",
-        status: 0,
-        question:
-            "CONTIENE LA W. Emparedado hecho con dos rebanadas de pan entre las cuales se coloca jamón y queso",
-    },
-    {
         letter: "x",
         answer: "botox",
         status: 0,
@@ -183,6 +168,13 @@ const questions = [
 
 const degAngle = 360 / 25;
 let angAngle = -90;
+let qtsNoAnswered = 25;
+let qtsFailed = 0;
+let qtsSucceeded = 0;
+let currentLetter = "A";
+let counter = 0;
+let totalTime = 130;
+questionData = "";
 
 const roscow = document.querySelectorAll(".letter");
 
@@ -197,26 +189,131 @@ const addPositionToLetter = () => {
 
 document.addEventListener("DOMContentLoaded", () => addPositionToLetter());
 
-let totalTime = 130;
-
 const updateClock = () => {
-    document.getElementById("timer").textContent = totalTime;
+    document.querySelector(".counter-timer").textContent = totalTime;
     if (totalTime == 0) {
         console.log("Final");
+        finalGame();
     } else {
         totalTime -= 1;
         setTimeout("updateClock()", 1000);
     }
 };
 
+const updateCountersHTML = () => {
+    document.querySelector(".counter-success").textContent = qtsSucceeded;
+    document.querySelector(".counter-fails").textContent = qtsFailed;
+    document.querySelector(".counter-remaining").textContent = qtsNoAnswered;
+};
+
 const beginGame = () => {
     document.querySelector(".inner-panel-begin").style.display = "none";
     document.querySelector(".inner-panel-game").style.display = "block";
+    updateClock();
+    doQuestion(); //mentres temps no s'acaba o s'acaben les preguntes
+};
+
+const followGame = (type = "") => {
+    checkAnswer(type);
+};
+
+const finalGame = () => {};
+
+const checkAnswer = (type) => {
+    console.log("checkanswer");
+    const currentLetterElement = document.querySelector(".current-letter");
+    if (type === "response") {
+        const answer = document
+            .querySelector(".input-answer")
+            .value.toLowerCase();
+
+        if (answer === questionData.answer.toLowerCase()) {
+            questionData.status = 1;
+            qtsSucceeded += 1;
+            currentLetterElement.classList.add("succeeded");
+            updateCountersHTML();
+            console.log(
+                `Con la ${questionData.letter.toLowerCase()} : "${answer}" es la respuesta correcta.`
+            );
+        } else if (answer === "pasapalabra") {
+            questionData.status = 0;
+            console.log(
+                `Con la ${questionData.letter.toLowerCase()} :  PASAPALABRA`
+            );
+        } else if (answer === null) {
+            qtsFailed += 1;
+            currentLetterElement.classList.add("failed");
+            updateCountersHTML();
+            console.log(
+                `Con la ${questionData.letter.toLowerCase()} : "${answer}" es incorrecto.`
+            );
+            questionData.status = -1;
+        } else if (answer === "end") {
+            isEnded = true;
+            throw isEnded;
+        } else {
+            console.log(
+                `Con la ${questionData.letter.toLowerCase()} : "${answer}" es incorrecto.`
+            );
+            qtsFailed += 1;
+            currentLetterElement.classList.add("failed");
+            updateCountersHTML();
+            questionData.status = -1;
+        }
+    } else {
+    }
+    //vaciamos el input
+    document.querySelector(".input-answer").value = "";
+    //actualitzar counters
+    counter += 1;
+    doQuestion();
+};
+
+const doQuestion = () => {
+    //posem lletra current
+    //ensenyem pregunta
+    //esperem resposta o passar
+
+    questionsNoAnswereds = questions.filter((row) => row.status === 0);
+    questionData = questionsNoAnswereds[counter];
+    console.log(questionsNoAnswereds);
+    qtsNoAnswered = questionsNoAnswereds.length;
+    updateCountersHTML();
+
+    console.log(questionData);
+    currentLetter = questionData.letter;
+    //si ya hay una current letter le borramos la clase
+    let prevCurrentLetter = document.querySelector(".current-letter");
+    if (prevCurrentLetter) {
+        prevCurrentLetter.classList.remove("current-letter");
+    }
+    //ponemos la clase current a la letra que toca
+    let currentLetterClass = document.querySelector(
+        `.letter-${questionData.letter}`
+    );
+    if (currentLetterClass) {
+        currentLetterClass.classList.add("current-letter");
+    }
+    //mostramos la letra que toca
+    let beginWith = document.querySelector(".begin-with span");
+    beginWith.textContent = questionData.letter;
+    //mostramos la pregunta que toca
+    let question = document.querySelector(".question");
+    question.textContent = questionData.question;
+
+    //dejamos que el usuario responda
 };
 
 const addEventListeners = () => {
-    const begin = document.querySelector(".begin");
-    begin.addEventListener("click", () => beginGame());
+    document.querySelector(".begin").addEventListener("click", beginGame);
+
+    document
+        .querySelector(".response-question")
+        .addEventListener("click", () => followGame("response"));
+
+    document
+        .querySelector(".pass-question")
+        .addEventListener("click", () => followGame("pass"));
 };
 
 document.addEventListener("DOMContentLoaded", () => addEventListeners());
