@@ -208,3 +208,15 @@ const updateClock = () => {
         setTimeout("updateClock()", 1000);
     }
 };
+
+const beginGame = () => {
+    document.querySelector(".inner-panel-begin").style.display = "none";
+    document.querySelector(".inner-panel-game").style.display = "block";
+};
+
+const addEventListeners = () => {
+    const begin = document.querySelector(".begin");
+    begin.addEventListener("click", () => beginGame());
+};
+
+document.addEventListener("DOMContentLoaded", () => addEventListeners());
