@@ -36,9 +36,9 @@ h1 span {
     letter-spacing: 0;
 }
 
-.roscow {
+.roscow-wrapper {
     position: relative;
-    width: 900px;
+    width: 1000px;
     height: 600px;
     display: flex;
     justify-content: space-between;
@@ -46,7 +46,7 @@ h1 span {
     margin: 0 auto;
 }
 
-.letters {
+.roscow {
     position: absolute;
     width: 600px;
     height: 600px;
@@ -54,7 +54,8 @@ h1 span {
     padding: 0;
     list-style-type: none;
     /* transform: translate(calc(50% - 300px)); */
-    transform: translate(150px);
+    /* la meitat del width del pare menys el width de l'element */
+    transform: translate(200px);
 }
 
 .letter {
@@ -66,7 +67,8 @@ h1 span {
     position: absolute;
     right: 0;
     top: 50%;
-    transform-origin: -242px; /* la meitat del width del pare menys el width de l'element */
+    /* la meitat del width del pare menys el width de l'element */
+    transform-origin: -242px;
     display: flex;
     justify-content: center;
     align-items: center;

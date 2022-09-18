@@ -184,10 +184,10 @@ const questions = [
 const degAngle = 360 / 25;
 let angAngle = -90;
 
-const letters = document.querySelectorAll(".letter");
+const roscow = document.querySelectorAll(".letter");
 
 const addPositionToLetter = () => {
-    letters.forEach((letter) => {
+    roscow.forEach((letter) => {
         letter.style.transform = `translateY(-50%) rotate(${angAngle}deg)`;
         const innerLetter = letter.querySelector(".inner-letter");
         innerLetter.style.transform = `rotate(${-angAngle}deg)`;
