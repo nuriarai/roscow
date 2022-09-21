@@ -489,7 +489,7 @@ table .counter-remaining {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--blue-soft);
+  background-color: #c0dbf4;
 }
 .modal.open {
   visibility: visible;

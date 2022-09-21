@@ -169,23 +169,20 @@ let questionsNoAnswered = 25;
 let questionsFailed = 0;
 let questionsSucceeded = 0;
 let currentLetter = "A";
-const originalTime = 20;
+const originalTime = 130;
 let totalTime = originalTime;
 let questionData;
 let timer;
-const roscow = document.querySelectorAll(".letter");
 
 const addPositionToRoscow = () => {
     wWidth = document.querySelector(".roscow-wrapper").offsetWidth;
-
     const trans = wWidth / 2 - 300;
     document.querySelector(".roscow").style.transform = `translate(${trans}px)`;
-
     /* transform: translate(calc(50% - 300px)); */
-    /* la meitat del width del pare menys el width de l'element */
-    //  transform: translate(200px);
+    /* half the parent width substracting the element's width*/
 };
 
+const roscow = document.querySelectorAll(".letter");
 const addPositionToLetter = () => {
     roscow.forEach((letter) => {
         letter.style.transform = `translateY(-50%) rotate(${angAngle}deg)`;
@@ -258,7 +255,6 @@ const beginGame = (panelFrom = "") => {
 };
 
 const followGame = (type = "") => {
-    document.querySelector(".input-answer").focus();
     checkAnswer(type);
 };
 
@@ -381,6 +377,8 @@ const addEventListeners = () => {
             // console.log(keyValue);
             switch (keyValue) {
                 case "Tab":
+                    event.preventDefault();
+                    document.querySelector(".input-answer").focus();
                     if (totalTime > 0) {
                         followGame("pass");
                     }
