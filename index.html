@@ -101,23 +101,35 @@
                     <span class="counter-success succeeded">0</span>
                 </div>
                 <div class="panel">
-                    <div class="inner-panel inner-panel-begin">
-                        <p>Vas a jugar al Isdi-Roscow</p>
-                        <p class="smaller">Recuerda escribir sin tildes</p>
+                    <div class="inner-panel inner-panel-begin animated">
+                        <p>Vas a jugar al<br />Isdi-Roscow</p>
+                        <p class="smaller">
+                            Recuerda escribir sin tildes.<br />Puedes usar la
+                            tecla Enter para enviar respuesta y el Tabulador
+                            para pasar palabra.
+                        </p>
                         <button class="begin btn-dark">Empezar</button>
                     </div>
-                    <div class="inner-panel inner-panel-game">
-                        <p class="begin-with btn-light">
-                            Empieza por <span></span>
-                        </p>
-                        <p class="question">Primera pregunta</p>
-                        <input
-                            type="text"
-                            placeholder="Escrible tu respuesta"
-                            class="input-answer"
-                        />
-                        <button class="response-question btn-dark">v</button>
-                        <button class="pass-question">PASAPALABRA</button>
+                    <div
+                        class="inner-panel inner-panel-game hidden-panel animated"
+                    >
+                        <div class="wrapper-question">
+                            <p class="begin-with btn-light">
+                                Empieza por <span></span>
+                            </p>
+                            <p class="question">Primera pregunta</p>
+                        </div>
+                        <div class="wrapper-response">
+                            <input
+                                type="text"
+                                placeholder="Escribe tu respuesta"
+                                class="input-answer"
+                            />
+                            <button class="response-question btn-dark">
+                                &#10003;
+                            </button>
+                            <button class="pass-question">PASAPALABRA</button>
+                        </div>
                     </div>
                 </div>
                 <div class="counters">
@@ -129,16 +141,59 @@
                     <span class="counter-remaining">25</span>
                 </div>
             </div>
+            <div class="modal modal-ended">
+                <div class="inner-panel inner-panel-final">
+                    <p>¡Enhorabuena!<br />Has completado el isdi-roscow.</p>
+                    <p>Estos son tu tiempo y resultados:</p>
+                    <table class="results">
+                        <thead>
+                            <tr>
+                                <th>Tiempo</th>
+                                <th>Aciertos</th>
+                                <th>Fallos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="counter-final-time">0</td>
+                                <td class="counter-success">0</td>
+                                <td class="counter-fails">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="rebegin btn-dark">Volver a jugar</button>
+                </div>
+            </div>
+            <div class="modal modal-timer">
+                <div class="inner-panel inner-panel-final">
+                    <p>¡Vaya, lo semtimos!<br />el tiempo se ha acabado.</p>
+                    <p class="">
+                        Nos has podido terminar, pero estos son los resultados
+                        que has obtenido:
+                    </p>
+                    <table class="results">
+                        <thead>
+                            <tr>
+                                <th>Aciertos</th>
+                                <th>Fallos</th>
+                                <th>Pendientes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="counter-success">10</td>
+                                <td class="counter-fails">5</td>
+                                <td class="counter-remaining">10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--  <span class="counter-success succeeded">0</span>
+                    <span class="counter-fails failed">0</span>
+                    <span class="counter-remaining">0</span> -->
+                    <button class="rebegin btn-dark">Volver a jugar</button>
+                </div>
+            </div>
         </main>
-        <footer>
-            <p>Isdi-Coders 2022 Pre-Curse</p>
-            <span>-</span>
-            <address>
-                <a href="https://www.linkedin.com/in/nuriaramoneda/"
-                    >Núria Ramoneda Aiguadé</a
-                >
-            </address>
-        </footer>
         <script type="text/javascript" src="assets/js/master.js"></script>
     </body>
 </html>

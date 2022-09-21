@@ -1,90 +1,88 @@
-console.clear();
 const questions = [
     {
         letter: "a",
         answer: "abducir",
         status: 0,
         question:
-            "CON LA A. Dicho de una supuesta criatura extraterrestre: Apoderarse de alguien",
+            "Dicho de una supuesta criatura extraterrestre: Apoderarse de alguien",
     },
     {
         letter: "b",
         answer: "bingo",
         status: 0,
         question:
-            "CON LA B. Juego que ha sacado de quicio a todos los 'Skylabers' en las sesiones de precurso",
+            "Juego que ha sacado de quicio a todos los 'Skylabers' en las sesiones de precurso",
     },
     {
         letter: "c",
         answer: "churumbel",
         status: 0,
-        question: "CON LA C. Niño, crío, bebé",
+        question: "Niño, crío, bebé",
     },
     {
         letter: "d",
         answer: "diarrea",
         status: 0,
         question:
-            "CON LA D. Anormalidad en la función del aparato digestivo caracterizada por frecuentes evacuaciones y su consistencia líquida",
+            "Anormalidad en la función del aparato digestivo caracterizada por frecuentes evacuaciones y su consistencia líquida",
     },
     {
         letter: "e",
         answer: "ectoplasma",
         status: 0,
         question:
-            "CON LA E. Gelatinoso y se encuentra debajo de la membrana plasmática. Los cazafantasmas medían su radiación",
+            "Gelatinoso y se encuentra debajo de la membrana plasmática. Los cazafantasmas medían su radiación",
     },
     {
         letter: "f",
         answer: "facil",
         status: 0,
-        question:
-            "CON LA F. Que no requiere gran esfuerzo, capacidad o dificultad",
+        question: "Que no requiere gran esfuerzo, capacidad o dificultad",
     },
     {
         letter: "g",
         answer: "galaxia",
         status: 0,
         question:
-            "CON LA G. Conjunto enorme de estrellas, polvo interestelar, gases y partículas",
+            "Conjunto enorme de estrellas, polvo interestelar, gases y partículas",
     },
     {
         letter: "h",
         answer: "harakiri",
         status: 0,
-        question: "CON LA H. Suicidio ritual japonés por desentrañamiento",
+        question: "Suicidio ritual japonés por desentrañamiento",
     },
     {
         letter: "i",
         answer: "iglesia",
         status: 0,
-        question: "CON LA I. Templo cristiano",
+        question: "Templo cristiano",
     },
     {
         letter: "j",
         answer: "jabali",
         status: 0,
         question:
-            "CON LA J. Variedad salvaje del cerdo que sale en la película 'El Rey León', de nombre Pumba",
+            "Variedad salvaje del cerdo que sale en la película 'El Rey León', de nombre Pumba",
     },
     {
         letter: "l",
         answer: "licantropo",
         status: 0,
-        question: "CON LA L. Hombre lobo",
+        question: "Hombre lobo",
     },
     {
         letter: "m",
         answer: "misantropo",
         status: 0,
         question:
-            "CON LA M. Persona que huye del trato con otras personas o siente gran aversión hacia ellas",
+            "Persona que huye del trato con otras personas o siente gran aversión hacia ellas",
     },
     {
         letter: "n",
         answer: "necedad",
         status: 0,
-        question: "CON LA N. Demostración de poca inteligencia",
+        question: "Demostración de poca inteligencia",
     },
     {
         letter: "ñ",
@@ -98,50 +96,49 @@ const questions = [
         answer: "orco",
         status: 0,
         question:
-            "CON LA O. Humanoide fantástico de apariencia terrible y bestial, piel de color verde creada por el escritor Tolkien",
+            "Humanoide fantástico de apariencia terrible y bestial, piel de color verde creada por el escritor Tolkien",
     },
     {
         letter: "p",
         answer: "protoss",
         status: 0,
         question:
-            "CON LA P. Raza ancestral tecnológicamente avanzada que se caracteriza por sus grandes poderes psíonicos del videojuego StarCraft",
+            "Raza ancestral tecnológicamente avanzada que se caracteriza por sus grandes poderes psíonicos del videojuego StarCraft",
     },
     {
         letter: "q",
         answer: "queso",
         status: 0,
         question:
-            "CON LA Q. Producto obtenido por la maduración de la cuajada de la leche",
+            "Producto obtenido por la maduración de la cuajada de la leche",
     },
-    { letter: "r", answer: "raton", status: 0, question: "CON LA R. Roedor" },
+    { letter: "r", answer: "raton", status: 0, question: "Roedor" },
     {
         letter: "s",
         answer: "stackoverflow",
         status: 0,
-        question:
-            "CON LA S. Comunidad salvadora de todo desarrollador informático",
+        question: "Comunidad salvadora de todo desarrollador informático",
     },
     {
         letter: "t",
         answer: "terminator",
         status: 0,
         question:
-            "CON LA T. Película del director James Cameron que consolidó a Arnold Schwarzenegger como actor en 1984",
+            "Película del director James Cameron que consolidó a Arnold Schwarzenegger como actor en 1984",
     },
     {
         letter: "u",
         answer: "unamuno",
         status: 0,
         question:
-            "CON LA U. Escritor y filósofo español de la generación del 98 autor del libro 'Niebla' en 1914",
+            "Escritor y filósofo español de la generación del 98 autor del libro 'Niebla' en 1914",
     },
     {
         letter: "v",
         answer: "vikingos",
         status: 0,
         question:
-            "CON LA V. Nombre dado a los miembros de los pueblos nórdicos originarios de Escandinavia, famosos por sus incursiones y pillajes en Europa",
+            "Nombre dado a los miembros de los pueblos nórdicos originarios de Escandinavia, famosos por sus incursiones y pillajes en Europa",
     },
     {
         letter: "x",
@@ -162,20 +159,20 @@ const questions = [
         answer: "zen",
         status: 0,
         question:
-            "CON LA Z. Escuela de budismo que busca la experiencia de la sabiduría más allá del discurso racional",
+            "Escuela de budismo que busca la experiencia de la sabiduría más allá del discurso racional",
     },
 ];
 
 const degAngle = 360 / 25;
 let angAngle = -90;
-let qtsNoAnswered = 25;
-let qtsFailed = 0;
-let qtsSucceeded = 0;
+let questionsNoAnswered = 25;
+let questionsFailed = 0;
+let questionsSucceeded = 0;
 let currentLetter = "A";
-let counter = 0;
-let totalTime = 130;
-questionData = "";
-
+const originalTime = 130;
+let totalTime = originalTime;
+let questionData;
+let timer;
 const roscow = document.querySelectorAll(".letter");
 
 const addPositionToLetter = () => {
@@ -187,125 +184,175 @@ const addPositionToLetter = () => {
     });
 };
 
-document.addEventListener("DOMContentLoaded", () => addPositionToLetter());
-
 const updateClock = () => {
     document.querySelector(".counter-timer").textContent = totalTime;
-    if (totalTime == 0) {
-        console.log("Final");
-        finalGame();
+    if (totalTime === 0) {
+        //    console.log("final");
+        finalGame("timer");
     } else {
         totalTime -= 1;
-        setTimeout("updateClock()", 1000);
+        timer = setTimeout("updateClock()", 1000);
     }
 };
 
 const updateCountersHTML = () => {
-    document.querySelector(".counter-success").textContent = qtsSucceeded;
-    document.querySelector(".counter-fails").textContent = qtsFailed;
-    document.querySelector(".counter-remaining").textContent = qtsNoAnswered;
+    const successCounters = document.querySelectorAll(".counter-success");
+    successCounters.forEach((counter) => {
+        counter.textContent = questionsSucceeded;
+    });
+    const failsCounters = document.querySelectorAll(".counter-fails");
+    failsCounters.forEach((counter) => {
+        counter.textContent = questionsFailed;
+    });
+    questionsNoAnswered =
+        questionsNoAnswered === undefined ? 0 : questionsNoAnswered;
+    const remainingCounters = document.querySelectorAll(".counter-remaining");
+    remainingCounters.forEach((counter) => {
+        counter.textContent = questionsNoAnswered;
+    });
+    if (timer) {
+        document.querySelector(".counter-final-time").textContent = timer + "s";
+    }
 };
 
-const beginGame = () => {
-    document.querySelector(".inner-panel-begin").style.display = "none";
-    document.querySelector(".inner-panel-game").style.display = "block";
+const resetData = () => {
+    questionsFailed = 0;
+    questionsSucceeded = 0;
+    currentLetter = "A";
+    questions.forEach((line) => (line.status = 0));
+    const allLetters = document.querySelectorAll(".letter");
+    allLetters.forEach((letter) => {
+        letter.classList.remove("failed", "succeeded", "current-letter");
+    });
+    questionsNoAnswered = questions.length;
+    document.querySelector(".counter-timer").textContent = totalTime;
+    updateCountersHTML();
+    isEnded = false;
+};
+
+const preBegin = () => {
+    debugger;
+    resetData();
+    switchPanels("inner-panel-game", "inner-panel-begin");
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach((element) => {
+        element.classList.remove("open");
+    });
+};
+
+const beginGame = (panelFrom = "") => {
+    totalTime = originalTime;
+    switchPanels("inner-panel-begin", "inner-panel-game");
+    document.querySelector(".input-answer").focus();
     updateClock();
-    doQuestion(); //mentres temps no s'acaba o s'acaben les preguntes
+    doQuestion();
 };
 
 const followGame = (type = "") => {
+    document.querySelector(".input-answer").focus();
     checkAnswer(type);
 };
 
-const finalGame = () => {};
+const switchPanels = (classFromPanel, classToPanel) => {
+    const fromPanel = document.querySelector(`.${classFromPanel}`);
+    fromPanel.classList.add("transition-panel");
+    fromPanel.classList.add("hidden-panel"); //hide
+    const toPanel = document.querySelector(`.${classToPanel}`);
+    toPanel.classList.add("transition-panel");
+    toPanel.classList.remove("hidden-panel"); //show
+};
+
+const finalGame = (from) => {
+    if (from === "timer") {
+        document.querySelector(".modal-timer").classList.add("open");
+    } else {
+        if (timer) {
+            //  console.log(timer);
+            clearTimeout(timer);
+        }
+        document.querySelector(".modal-ended").classList.add("open");
+    }
+};
 
 const checkAnswer = (type) => {
-    console.log("checkanswer");
     const currentLetterElement = document.querySelector(".current-letter");
+    const inputAnswer = document.querySelector(".input-answer");
     if (type === "response") {
-        const answer = document
-            .querySelector(".input-answer")
-            .value.toLowerCase();
-
+        const answer = inputAnswer.value.toLowerCase();
         if (answer === questionData.answer.toLowerCase()) {
             questionData.status = 1;
-            qtsSucceeded += 1;
+            questionsSucceeded += 1;
             currentLetterElement.classList.add("succeeded");
             updateCountersHTML();
-            console.log(
-                `Con la ${questionData.letter.toLowerCase()} : "${answer}" es la respuesta correcta.`
-            );
         } else if (answer === "pasapalabra") {
-            questionData.status = 0;
-            console.log(
-                `Con la ${questionData.letter.toLowerCase()} :  PASAPALABRA`
-            );
+            questionData.status = 3;
         } else if (answer === null) {
-            qtsFailed += 1;
+            questionData.status = -1;
+            questionsFailed += 1;
             currentLetterElement.classList.add("failed");
             updateCountersHTML();
-            console.log(
-                `Con la ${questionData.letter.toLowerCase()} : "${answer}" es incorrecto.`
-            );
-            questionData.status = -1;
         } else if (answer === "end") {
             isEnded = true;
-            throw isEnded;
+            finalGame();
         } else {
-            console.log(
-                `Con la ${questionData.letter.toLowerCase()} : "${answer}" es incorrecto.`
-            );
-            qtsFailed += 1;
+            questionData.status = -1;
+            questionsFailed += 1;
             currentLetterElement.classList.add("failed");
             updateCountersHTML();
-            questionData.status = -1;
         }
     } else {
+        questionData.status = 3;
     }
     //vaciamos el input
-    document.querySelector(".input-answer").value = "";
-    //actualitzar counters
-    counter += 1;
+    inputAnswer.value = "";
+    inputAnswer.focus();
     doQuestion();
 };
 
 const doQuestion = () => {
-    //posem lletra current
-    //ensenyem pregunta
-    //esperem resposta o passar
-
-    questionsNoAnswereds = questions.filter((row) => row.status === 0);
-    questionData = questionsNoAnswereds[counter];
-    console.log(questionsNoAnswereds);
-    qtsNoAnswered = questionsNoAnswereds.length;
-    updateCountersHTML();
-
-    console.log(questionData);
-    currentLetter = questionData.letter;
-    //si ya hay una current letter le borramos la clase
-    let prevCurrentLetter = document.querySelector(".current-letter");
-    if (prevCurrentLetter) {
-        prevCurrentLetter.classList.remove("current-letter");
+    questionData = questions.find((row) => row.status === 0);
+    if (!questionData) {
+        questionData = questions.find((row) => row.status === 3);
     }
-    //ponemos la clase current a la letra que toca
-    let currentLetterClass = document.querySelector(
-        `.letter-${questionData.letter}`
-    );
-    if (currentLetterClass) {
-        currentLetterClass.classList.add("current-letter");
+    if (!questionData) {
+        finalGame("end");
+    } else {
+        questionsNoAnswered = questions.filter(
+            (row) => row.status === 0 || row.status === 3
+        ).length;
+        updateCountersHTML();
+        currentLetter = questionData.letter;
+        //si ya hay una current letter le borramos la clase
+        let prevCurrentLetter = document.querySelector(".current-letter");
+        if (prevCurrentLetter) {
+            prevCurrentLetter.classList.remove("current-letter");
+        }
+        //ponemos la clase current a la letra que toca
+        let currentLetterClass = document.querySelector(
+            `.letter-${questionData.letter}`
+        );
+        if (currentLetterClass) {
+            currentLetterClass.classList.add("current-letter");
+        }
+        //mostramos la letra que toca
+        let beginWith = document.querySelector(".begin-with span");
+        beginWith.textContent = questionData.letter;
+        //mostramos la pregunta que toca
+        let question = document.querySelector(".question");
+        question.textContent = questionData.question;
     }
-    //mostramos la letra que toca
-    let beginWith = document.querySelector(".begin-with span");
-    beginWith.textContent = questionData.letter;
-    //mostramos la pregunta que toca
-    let question = document.querySelector(".question");
-    question.textContent = questionData.question;
-
-    //dejamos que el usuario responda
 };
 
 const addEventListeners = () => {
-    document.querySelector(".begin").addEventListener("click", beginGame);
+    document
+        .querySelector(".begin")
+        .addEventListener("click", () => beginGame("begin"));
+
+    document.querySelector(".rebegin").click();
+
+    document
+        .querySelector(".rebegin")
+        .addEventListener("click", () => preBegin("final"));
 
     document
         .querySelector(".response-question")
@@ -314,6 +361,37 @@ const addEventListeners = () => {
     document
         .querySelector(".pass-question")
         .addEventListener("click", () => followGame("pass"));
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+            const keyValue = event.key;
+            //   const codeValue = event.which;
+            // console.log(keyValue);
+            switch (keyValue) {
+                case "Tab":
+                    if (totalTime > 0) {
+                        followGame("pass");
+                    }
+                    break;
+                case "Enter":
+                    if (totalTime != originalTime && totalTime != 0) {
+                        followGame("response");
+                    } else {
+                        beginGame();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        },
+        false
+    );
 };
 
-document.addEventListener("DOMContentLoaded", () => addEventListeners());
+const runGame = () => {
+    addPositionToLetter();
+    addEventListeners();
+};
+
+document.addEventListener("DOMContentLoaded", () => runGame());

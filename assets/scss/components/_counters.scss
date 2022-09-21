@@ -58,6 +58,13 @@
     );
 }
 
+table .counter-success,
+table .counter-fails,
+table .counter-remaining {
+    width: 33%;
+    height: auto;
+}
+
 .label-counter-remaining,
 .label-counter-fails {
 }
