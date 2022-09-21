@@ -60,7 +60,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: rgba(4, 86, 254);
+    background-color: var(--main-color); //rgba(4, 87, 254, 1);
     animation: pulseLetter 1s infinite;
 }
 

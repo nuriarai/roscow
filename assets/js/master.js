@@ -169,22 +169,18 @@ let questionsNoAnswered = 25;
 let questionsFailed = 0;
 let questionsSucceeded = 0;
 let currentLetter = "A";
-const originalTime = 130;
+const originalTime = 20;
 let totalTime = originalTime;
 let questionData;
 let timer;
 const roscow = document.querySelectorAll(".letter");
 
 const addPositionToRoscow = () => {
-    wWidth = window.innerWidth;
+    wWidth = document.querySelector(".roscow-wrapper").offsetWidth;
 
-    if (wWidth < 1000) {
-        console.log("menor de 1000");
-        const trans = wWidth / 2 - 300;
-        document.querySelector(
-            ".roscow"
-        ).style.transform = `translate(${trans}px)`;
-    }
+    const trans = wWidth / 2 - 300;
+    document.querySelector(".roscow").style.transform = `translate(${trans}px)`;
+
     /* transform: translate(calc(50% - 300px)); */
     /* la meitat del width del pare menys el width de l'element */
     //  transform: translate(200px);
@@ -202,7 +198,6 @@ const addPositionToLetter = () => {
 const updateClock = () => {
     document.querySelector(".counter-timer").textContent = totalTime;
     if (totalTime === 0) {
-        //    console.log("final");
         finalGame("timer");
     } else {
         totalTime -= 1;
@@ -240,13 +235,12 @@ const resetData = () => {
         letter.classList.remove("failed", "succeeded", "current-letter");
     });
     questionsNoAnswered = questions.length;
-    document.querySelector(".counter-timer").textContent = totalTime;
+    document.querySelector(".counter-timer").textContent = originalTime;
     updateCountersHTML();
     isEnded = false;
 };
 
 const preBegin = () => {
-    debugger;
     resetData();
     switchPanels("inner-panel-game", "inner-panel-begin");
     const modals = document.querySelectorAll(".modal");
@@ -363,10 +357,12 @@ const addEventListeners = () => {
         .querySelector(".begin")
         .addEventListener("click", () => beginGame("begin"));
 
-    document.querySelector(".rebegin").click();
-
     document
         .querySelector(".rebegin")
+        .addEventListener("click", () => preBegin("final"));
+
+    document
+        .querySelector(".btnRebegin")
         .addEventListener("click", () => preBegin("final"));
 
     document
