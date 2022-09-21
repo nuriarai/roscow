@@ -175,6 +175,21 @@ let questionData;
 let timer;
 const roscow = document.querySelectorAll(".letter");
 
+const addPositionToRoscow = () => {
+    wWidth = window.innerWidth;
+
+    if (wWidth < 1000) {
+        console.log("menor de 1000");
+        const trans = wWidth / 2 - 300;
+        document.querySelector(
+            ".roscow"
+        ).style.transform = `translate(${trans}px)`;
+    }
+    /* transform: translate(calc(50% - 300px)); */
+    /* la meitat del width del pare menys el width de l'element */
+    //  transform: translate(200px);
+};
+
 const addPositionToLetter = () => {
     roscow.forEach((letter) => {
         letter.style.transform = `translateY(-50%) rotate(${angAngle}deg)`;
@@ -390,8 +405,10 @@ const addEventListeners = () => {
 };
 
 const runGame = () => {
+    addPositionToRoscow();
     addPositionToLetter();
     addEventListeners();
 };
 
 document.addEventListener("DOMContentLoaded", () => runGame());
+window.addEventListener("resize", () => addPositionToRoscow());
